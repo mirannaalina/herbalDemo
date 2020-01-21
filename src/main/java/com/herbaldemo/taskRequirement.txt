@@ -1,0 +1,16 @@
+Herbalife Project.
+
+
+1.	Authentication and authorization
+•	Herbalife clients will be able to register on a form.
+o	There shall be a possibility to register a user, with username , email, password and confirm password. After confirming that the user is not existing, your account is created and you are redirected to a page where you can enter personal information.
+•	The client will be able to login.
+•	The client should be able to view his herbalife statistics.
+•	He will be able to have different entries with statistics during herbalife process.
+
+2.	Statistics
+•	   After login, information provided are the date when the entry was completed, metabolic age, kg, body fat,muscle and  hydration level.
+3.	Purpose
+•	The purpose of the application is to compare the entries and see the upgrade or downgrade took after the months during Herbalife process.
+4.	Technologies
+o	Technologies used are Java language, Spring framework, Hibernate tool, MySql database management system, Workbench tool, Thymeleaf library, and Postman tool.
