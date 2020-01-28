@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<body>
+<h1 th:text="#{label.form.title}">form</h1>
+<form action="/herbal/userdata/add" th:object="${dataModel}" method="POST" enctype="utf8">
+    <div>
+        <label th:text="#{label.data.dataEntry}">DataEntry</label>
+        <input th:field="*{dataEntry}"/>
+    </div>
+    <div>
+            <label th:text="#{label.data.age}">Age</label>
+            <input th:field="*{age}"/>
+    </div>
+    <div>
+            <label th:text="#{label.data.metabolicAge}">MetabolicAge</label>
+            <input th:field="metabolicAge"/>
+    </div>
+    <div>
+            <label th:text="#{label.data.kg}">Kg</label>
+            <input th:field="*{kg}"/>
+    </div>
+    <div>
+            <label th:text="#{label.data.bodyFat}">BodyFat</label>
+            <input th:field="*bodyFat"/>
+    </div>
+    <div>
+             <label th:text="#{label.data.bodyFat}">BodyFat</label>
+             <input th:field="*bodyFat"/>
+    </div>
+    <div>
+              <label th:text="#{label.data.muscle}">Muscle</label>
+              <input th:field="*muscle"/>
+    </div>
+    <div>
+              <label th:text="#{label.data.hydrationLevel}">HydrationLevel</label>
+              <input th:field="*hydrationLevel"/>
+    </div>
+
+    <button type="submit" th:text="#{label.form.submit}">submit</button>
+</form>
+
+<a th:href="{/herbal/userdata/{id}}" th:text="#{label.form.userdata}">login</a>
+</body>
+</html>
