@@ -15,8 +15,8 @@ public class Role {
     @Column(name = "ROLE_NAME")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<User> users;
+//    @ManyToMany(mappedBy = "roles")
+//    private Set<UserEntity> users;
 
     public long getId() {
         return id;
@@ -33,14 +33,14 @@ public class Role {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Set<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Set<User> users) {
-        this.users = users;
-    }
+//
+//    public Set<UserEntity> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Set<UserEntity> users) {
+//        this.users = users;
+//    }
 
 
 

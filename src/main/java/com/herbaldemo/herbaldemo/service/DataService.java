@@ -1,46 +1,51 @@
 package com.herbaldemo.herbaldemo.service;
 
 import com.herbaldemo.herbaldemo.model.Data;
+import com.herbaldemo.herbaldemo.model.DataEntity;
 import com.herbaldemo.herbaldemo.model.DataModel;
-import org.springframework.beans.factory.annotation.Value;
+import com.herbaldemo.herbaldemo.model.UserEntity;
+import com.herbaldemo.herbaldemo.model.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class DataService {
 
+    private final UserRepository userRepository;
 
-    @Value("${reservation.service.url")
-    private String dataServiceURL;
-
-    private final RestTemplate restTemplate = new RestTemplate();
-
-    //@Transactional
-    //get all entries from an user
-    public List<Data> getAllData(){
-        System.out.println(dataServiceURL);
-        String url = dataServiceURL+"herbal/userdata/{id}";
-        HttpEntity<String> request = new HttpEntity<>(null,null);
-        return this.restTemplate.
-                exchange(url,HttpMethod.GET, request, new ParameterizedTypeReference<List<Data>>(){}).getBody();
+    @Autowired
+    public DataService(UserRepository userRepository){
+        this.userRepository=userRepository;
     }
 
-        //@Transactional
-        //new entry
-    public Data newEntry (DataModel data, Long id){
-        String url=dataServiceURL+"/herbal/userdata/add\"";
-        //in progress implementation
-        // return new Data("20.01.2020",23,20,55,17,19,20);
+    @Transactional
+    //get all entries from an user
+    public List<UserEntity> getAllData() {
+        return userRepository.findAll();
+        //find all datas from a specific user
+    }
 
-        HttpEntity<DataModel> request = new HttpEntity<>(data,null);
-        return this.restTemplate.
-                exchange(url,HttpMethod.PUT,request,Data.class)
-                .getBody();
+
+
+    @Transactional
+        //new entry
+    public void newEntry (DataModel dataModel){
+        DataEntity dataEntity= new DataEntity();
+        dataEntity.setDataEntry(dataModel.getDataEntry());
+        dataEntity.setAge(dataModel.getAge());
+        dataEntity.setMetabolicAge(dataModel.getMetabolicAge());
+        dataEntity.setKg(dataModel.getKg());
+        dataEntity.setBodyFat(dataModel.getBodyFat());
+        dataEntity.setMuscle(dataModel.getMuscle());
+        dataEntity.setHydrationLevel(dataModel.getHydrationLevel());
+
+
     }
 
 

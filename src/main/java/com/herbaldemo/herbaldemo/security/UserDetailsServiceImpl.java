@@ -1,7 +1,6 @@
 package com.herbaldemo.herbaldemo.security;
 
-import com.herbaldemo.herbaldemo.model.Role;
-import com.herbaldemo.herbaldemo.model.User;
+import com.herbaldemo.herbaldemo.model.UserEntity;
 import com.herbaldemo.herbaldemo.model.UserRole;
 import com.herbaldemo.herbaldemo.model.repository.UserRepository;
 import com.herbaldemo.herbaldemo.model.repository.UserRoleRepository;
@@ -20,6 +19,7 @@ import java.util.List;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 
+    @Autowired
     private UserRepository userRepository;
     private UserRoleRepository userRoleRepository;
 
@@ -35,11 +35,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = this.userRepository.findByUsername(username);
+        UserEntity user = this.userRepository.findByUsername(username);
 
         if (null == user) {
-            System.out.println("User not found:" + username);
-            throw new UsernameNotFoundException("User not found:" + username);
+            System.out.println("UserEntity not found:" + username);
+            throw new UsernameNotFoundException("UserEntity not found:" + username);
         }
 
         System.out.println(username + " is found in database!");
@@ -55,9 +55,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         List<GrantedAuthority> grantedList = new ArrayList<>();
 
-        for (Role role : user.getRoles()){
-            grantedList.add(new SimpleGrantedAuthority(role.getName()));
-        }
+        //for (Role role : user.getRoles()){
+            grantedList.add(new SimpleGrantedAuthority("ADMIN"));
+        //}
 
         UserDetails userDetails = new org.springframework.security.core.userdetails.User(user.getUsername(),
                 user.getPassword(), grantedList);
