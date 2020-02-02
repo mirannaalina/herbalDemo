@@ -4,11 +4,9 @@ import com.herbaldemo.herbaldemo.model.Data;
 import com.herbaldemo.herbaldemo.model.DataEntity;
 import com.herbaldemo.herbaldemo.model.DataModel;
 import com.herbaldemo.herbaldemo.model.UserEntity;
+import com.herbaldemo.herbaldemo.model.repository.DataRepository;
 import com.herbaldemo.herbaldemo.model.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -18,16 +16,18 @@ import java.util.List;
 public class DataService {
 
     private final UserRepository userRepository;
+    private final DataRepository dataRepository;
 
     @Autowired
-    public DataService(UserRepository userRepository){
+    public DataService(UserRepository userRepository, DataRepository dataRepository){
         this.userRepository=userRepository;
+        this.dataRepository=dataRepository;
     }
 
     @Transactional
     //get all entries from an user
-    public List<UserEntity> getAllData() {
-        return userRepository.findAll();
+    public List<DataEntity> getAllData() {
+        return dataRepository.findAll();
         //find all datas from a specific user
     }
 

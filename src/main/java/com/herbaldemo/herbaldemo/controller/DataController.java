@@ -2,6 +2,7 @@ package com.herbaldemo.herbaldemo.controller;
 
 
 import com.herbaldemo.herbaldemo.model.Data;
+import com.herbaldemo.herbaldemo.model.DataEntity;
 import com.herbaldemo.herbaldemo.model.DataModel;
 import com.herbaldemo.herbaldemo.service.DataService;
 import com.sun.xml.bind.v2.model.core.ID;
@@ -29,7 +30,7 @@ public class DataController {
     @GetMapping("/userdata/{id}")
     @PreAuthorize("hasRole('ROLE_USER'")
     public String getUserData(Model model) {
-        List<Data> date = this.dataService.getAllData();
+        List<DataEntity> date = this.dataService.getAllData();
         model.addAttribute("date", date);
         return "date.html";
     }
@@ -39,9 +40,9 @@ public class DataController {
     @PostMapping("/userdata/add")
     @PreAuthorize("hasRole('ROLE_USER')")
     public String save(Model model,@PathVariable Long id, @ModelAttribute DataModel dataModel) {
-        Data date = this.dataService.newEntry(dataModel,id);
+        dataService.newEntry(dataModel);
 
-        model.addAttribute("data",date);
+       // model.addAttribute("data",date);  ??
         model.addAttribute("dataModel", new DataModel());
 
         return "adddate.html"; //updated with our new entries
