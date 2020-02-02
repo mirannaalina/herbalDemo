@@ -31,6 +31,10 @@ public class DataEntity {
     @Column(name="hydrationLevel")
     private int hydrationLevel;
 
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
     public Long getId() {
         return id;
     }

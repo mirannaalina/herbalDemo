@@ -18,6 +18,9 @@ public class UserEntity {
     @Column(name = "PASSWORD")
     private String password;
 
+    @OneToOne(mappedBy = "user")
+    private DataEntity dataEntity;
+
 //    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 //    @JoinTable(name = "USER_ROLE",
 //            joinColumns = { @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID") }, inverseJoinColumns = {
@@ -47,6 +50,9 @@ public class UserEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
+
 
 //    public Set<Role> getRoles() {
 //        return roles;

@@ -48,7 +48,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         // service used to find UserEntity in database
         // and encrypt password
 
-
+        System.out.println("password" + passwordEncoder().encode("admin"));
 //		auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(passwordEncoder());
         auth.authenticationProvider(authenticationProvider());
     }
