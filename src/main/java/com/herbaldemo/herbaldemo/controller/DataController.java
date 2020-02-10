@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping(value="/herbal")
+//@RequestMapping(value="/herbal")
 public class DataController {
 
     private DataService dataService;
@@ -26,8 +26,9 @@ public class DataController {
         this.dataService = dataService;
     }
 
+
     //get all data output
-    @GetMapping("/userdata/{id}")
+    @GetMapping("/userdata")
     @PreAuthorize("hasRole('ROLE_USER'")
     public String getUserData(Model model) {
         List<DataEntity> date = this.dataService.getAllData();

@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
 <h1 th:text="#{label.form.title}">form</h1>
-<form action="/herbal/userdata/add" th:object="${dataModel}" method="POST" enctype="utf8">
+<form action="userdata/add" th:object="${dataModel}" method="POST" enctype="utf8">
     <div>
         <label th:text="#{label.data.dataEntry}">DataEntry</label>
         <input th:field="*{dataEntry}"/>
