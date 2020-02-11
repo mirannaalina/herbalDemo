@@ -1,43 +1,32 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
 <h1 th:text="#{label.form.title}">form</h1>
-<form action="userdata/add" th:object="${dataModel}" method="POST" enctype="utf8">
+<form action="userdata/add" th:object="${date}" method="POST" enctype="utf8">
     <div>
-        <label th:text="#{label.data.dataEntry}">DataEntry</label>
-        <input th:field="*{dataEntry}"/>
+             <p>DataEntry:<input th:field="*{dataEntry}"/> </p>
     </div>
     <div>
-            <label th:text="#{label.data.age}">Age</label>
-            <input th:field="*{age}"/>
+              <p>Age: <input th:field="*{age}"/></p>
     </div>
     <div>
-            <label th:text="#{label.data.metabolicAge}">MetabolicAge</label>
-            <input th:field="metabolicAge"/>
+              <p>MetabolicAge: <input th:field="metabolicAge"/></p>
     </div>
     <div>
-            <label th:text="#{label.data.kg}">Kg</label>
-            <input th:field="*{kg}"/>
+              <p>Kg: <input th:field="*{kg}"/></p>
     </div>
     <div>
-            <label th:text="#{label.data.bodyFat}">BodyFat</label>
-            <input th:field="*bodyFat"/>
+              <p>BodyFat: <input th:field="*bodyFat"/></p>
     </div>
     <div>
-             <label th:text="#{label.data.bodyFat}">BodyFat</label>
-             <input th:field="*bodyFat"/>
+              <p>Muscle: <input th:field="*muscle"/></p>
     </div>
     <div>
-              <label th:text="#{label.data.muscle}">Muscle</label>
-              <input th:field="*muscle"/>
-    </div>
-    <div>
-              <label th:text="#{label.data.hydrationLevel}">HydrationLevel</label>
-              <input th:field="*hydrationLevel"/>
+              <p>Hidration Level: <input th:field="*hydrationLevel"/></p>
     </div>
 
     <button type="submit" th:text="#{label.form.submit}">submit</button>
 </form>
 
-<a th:href="{/herbal/userdata/{id}}" th:text="#{label.form.userdata}">login</a>
+
 </body>
 </html>

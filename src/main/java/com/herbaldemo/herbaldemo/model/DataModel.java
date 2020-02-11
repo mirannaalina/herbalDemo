@@ -3,7 +3,7 @@ package com.herbaldemo.herbaldemo.model;
 
 //in this model there is no constructor, that/s the point of duplicate code
 public class DataModel {
-    private String dataEntry;
+    private int dataEntry;
     private int age;
     private int metabolicAge;
     private int kg;
@@ -12,11 +12,11 @@ public class DataModel {
     private int hydrationLevel;
 
 
-    public String getDataEntry() {
+    public int getDataEntry() {
         return dataEntry;
     }
 
-    public void setDataEntry(String dataEntry) {
+    public void setDataEntry(int dataEntry) {
         this.dataEntry = dataEntry;
     }
 

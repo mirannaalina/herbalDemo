@@ -2,7 +2,7 @@ package com.herbaldemo.herbaldemo.model;
 
 public class Data {
 
-    private String dataEntry;
+    private int dataEntry;
     private int age;
     private int metabolicAge;
     private int kg;
@@ -10,7 +10,7 @@ public class Data {
     private int muscle;
     private int hydrationLevel;
 
-    public Data(String dataEntry, int age, int metabolicAge, int kg, int bodyFat, int muscle, int hydrationLevel) {
+    public Data(int dataEntry, int age, int metabolicAge, int kg, int bodyFat, int muscle, int hydrationLevel) {
         this.dataEntry = dataEntry;
         this.age = age;
         this.metabolicAge = metabolicAge;
@@ -20,11 +20,11 @@ public class Data {
         this.hydrationLevel = hydrationLevel;
     }
 
-    public String getDataEntry() {
+    public int getDataEntry() {
         return dataEntry;
     }
 
-    public void setDataEntry(String dataEntry) {
+    public void setDataEntry(int dataEntry) {
         this.dataEntry = dataEntry;
     }
 

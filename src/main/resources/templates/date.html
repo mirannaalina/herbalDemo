@@ -13,7 +13,7 @@
                 <h3>Entries</h3>
             </div>
             <div class="col">
-                <a th:href="@{/userdata/add}">All Entries</a>
+                <a th:href="@{/userdata/addview}">Add new Entry</a>
             </div>
         </div>
         <table id="table" class="table table-striped table-sm">
@@ -25,11 +25,11 @@
             <th scope="col">Kg</th>
             <th scope="col">BodyFat</th>
             <th scope="col">Muscle</th>
-            <th scope="col">HydrationLevel</th>
+            <th scope="col">Hydration Level</th>
             </thead>
-            <tbody>
+            <body>
             <tr th:each="data : ${date}">
-                <th scope="row"><a th:href="@{'/herbal/userdata/' + ${date.id}}" th:text="${date.getId}"></a></th>
+                <th scope="row"><a th:href="@{'userdata/' + ${date.id}}" th:text="${date.getId}"></a></th>
                 <td th:text="${date.getDataEntry()}"></td>
                 <td th:text="${date.getAge()}"></td>
                 <td th:text="${date.getMetabolicAge()}"></td>
@@ -38,7 +38,7 @@
                 <td th:text="${date.getMuscle()}"></td>
                 <td th:text="${date.getHydrationLevel()}"></td>
             </tr>
-            </tbody>
+            </body>
         </table>
     </div>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>

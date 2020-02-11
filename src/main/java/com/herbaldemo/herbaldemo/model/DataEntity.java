@@ -11,7 +11,7 @@ public class DataEntity {
     private Long id;
 
     @Column(name ="dataEntry")
-    private String dataEntry;
+    private int dataEntry;
 
     @Column(name="age")
     private int age;
@@ -43,11 +43,11 @@ public class DataEntity {
         this.id = id;
     }
 
-    public String getDataEntry() {
+    public int getDataEntry() {
         return dataEntry;
     }
 
-    public void setDataEntry(String dataEntry) {
+    public void setDataEntry(int dataEntry) {
         this.dataEntry = dataEntry;
     }
 

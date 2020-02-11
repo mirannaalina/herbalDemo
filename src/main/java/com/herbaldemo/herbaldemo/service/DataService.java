@@ -30,11 +30,6 @@ public class DataService {
         return dataRepository.findAll();
         //find all datas from a specific user
     }
-
-
-
-
-
     @Transactional
         //new entry
     public void newEntry (DataModel dataModel){
