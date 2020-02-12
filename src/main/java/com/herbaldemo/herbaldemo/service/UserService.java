@@ -22,6 +22,7 @@ public class UserService {
         user.setUsername(userEntity.getUsername());
         user.setPassword(userEntity.getPassword());
 
-        return  userRepository.save(user).orElse(null);
+        //return  userRepository.save(user).orElse(null);
+        return null;
     }
 }
