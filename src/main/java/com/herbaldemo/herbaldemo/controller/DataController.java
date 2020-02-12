@@ -49,13 +49,15 @@ public class DataController {
         return "adddate.html"; //updated with our new entries
 }
 
-//get the form
-@GetMapping("userdata/addview")
+    //get the form
+    @GetMapping("userdata/addview")
     public String showData(Model model){
-    List<DataEntity> date = this.dataService.getAllData();
-    model.addAttribute("date", date);
-    return "adddate.html";
+        List<DataEntity> date = this.dataService.getAllData();
+        model.addAttribute("date", date);
+        return "adddate.html";
 }
+
+
 
 
 }
