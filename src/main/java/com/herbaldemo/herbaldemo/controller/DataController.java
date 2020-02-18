@@ -40,20 +40,20 @@ public class DataController {
     //after pressing the button, new data will be added, ready to be compared.
     @PostMapping("/userdata/add")
     @PreAuthorize("hasRole('ROLE_USER')")
-    public String save(Model model,@PathVariable Long id, @ModelAttribute DataModel dataModel) {
+    public String save(Model model, @ModelAttribute DataModel dataModel) {
         dataService.newEntry(dataModel);
 
        // model.addAttribute("data",date);  ??
         model.addAttribute("dataModel", new DataModel());
 
-        return "adddate.html"; //updated with our new entries
+        return "redirect:/userdata"; //updated with our new entries
 }
 
     //get the form
     @GetMapping("userdata/addview")
     public String showData(Model model){
-        List<DataEntity> date = this.dataService.getAllData();
-        model.addAttribute("date", date);
+//        DataEntity date = this.dataService.getAllData();
+        model.addAttribute("dataModel", new DataModel());
         return "adddate.html";
 }
 

@@ -64,7 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         // only if the user is logged in as user or admin
         http
                 .authorizeRequests()
-                .antMatchers("/userinfo")
+                .antMatchers("/userdata")
                 .access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
         // only if the user is logged in as admin
@@ -85,7 +85,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .formLogin()
                 .loginProcessingUrl("/login_securely")// submit reuqest
                 .loginPage("/login")
-                .defaultSuccessUrl("/userinfo")
+                .defaultSuccessUrl("/userdata")
                 .usernameParameter("username")
                 .passwordParameter("password")
                 //configure logout

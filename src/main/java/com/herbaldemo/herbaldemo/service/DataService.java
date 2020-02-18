@@ -41,7 +41,7 @@ public class DataService {
         dataEntity.setBodyFat(dataModel.getBodyFat());
         dataEntity.setMuscle(dataModel.getMuscle());
         dataEntity.setHydrationLevel(dataModel.getHydrationLevel());
-
+        dataRepository.save(dataEntity);
 
     }
 

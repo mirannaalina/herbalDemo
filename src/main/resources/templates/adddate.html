@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
-<h1 th:text="#{label.form.title}">form</h1>
-<form action="userdata/add" th:object="${date}" method="POST" enctype="utf8">
+<h1>form</h1>
+<form action="/userdata/add" th:object="${dataModel}" method="POST" enctype="utf8">
     <div>
              <p>DataEntry:<input th:field="*{dataEntry}"/> </p>
     </div>
@@ -9,19 +9,19 @@
               <p>Age: <input th:field="*{age}"/></p>
     </div>
     <div>
-              <p>MetabolicAge: <input th:field="metabolicAge"/></p>
+              <p>MetabolicAge: <input th:field="*{metabolicAge}"/></p>
     </div>
     <div>
               <p>Kg: <input th:field="*{kg}"/></p>
     </div>
     <div>
-              <p>BodyFat: <input th:field="*bodyFat"/></p>
+              <p>BodyFat: <input th:field="*{bodyFat}"/></p>
     </div>
     <div>
-              <p>Muscle: <input th:field="*muscle"/></p>
+              <p>Muscle: <input th:field="*{muscle}"/></p>
     </div>
     <div>
-              <p>Hidration Level: <input th:field="*hydrationLevel"/></p>
+              <p>Hidration Level: <input th:field="*{hydrationLevel}"/></p>
     </div>
 
     <button type="submit" th:text="#{submit}">submit</button>
